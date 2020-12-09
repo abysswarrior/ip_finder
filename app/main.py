@@ -13,4 +13,4 @@ def home_view():
 
         print(ip.json()['ip'], lookup['asn_description'])
         
-        return f"<h1>Welcome to our crypto trading profile!! </br> this is running at IP : {ip.json()['ip']} from {lookup}</h1>"
+        return f"<h1>Welcome to our crypto trading profile!! </br> this is running at IP : {ip.json()['ip']} from {lookup['description']} {lookup['country']}</h1>"
