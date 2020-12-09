@@ -11,4 +11,4 @@ def home_view():
 
         lookup = IPWhois(ip.json()['ip']).lookup_whois()
         
-        return f"<h1>Welcome to our crypto trading profile!! </br> this is running at IP : {ip.json()['ip']} from {lookup['description']} {lookup['country']}</h1>"
+        return f"<h1>Welcome to our crypto trading profile!! </br> this is running at IP/region : {ip.json()['ip']} {lookup['country']} </h1>"
