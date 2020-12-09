@@ -1,10 +1,16 @@
 
 from flask import Flask 
-from ipify import get_ip
+import requests
+from ipwhois import IPWhois
   
 app = Flask(__name__) 
   
 @app.route("/") 
 def home_view():
-        ip = get_ip()
-        return f"<h1>Welcome to our crypto trading profile!! </br> this will be run at {str(ip)}</h1>"
+        ip = requests.get('https://api.ipify.org?format=json')
+
+        lookup = IPWhois(ip.json()['ip']).lookup_whois()
+
+        print(ip.json()['ip'], lookup['asn_description'])
+        
+        return f"<h1>Welcome to our crypto trading profile!! </br> this is running at IP : {ip.json()['ip']} from {lookup['asn_description']}</h1>"
